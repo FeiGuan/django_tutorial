@@ -1,0 +1,29 @@
+add Poll Choice in models.py
+
+python manage.py sql polls
+python manage.py syncdb
+
+//invoke shell
+python manage.py shell
+
+//in shell
+from [appname].models import [class],[class]
+
+[class].objects.all()
+
+[class].objects.filter([field]=...)
+
+[class].objects.filter([field]__((i)startswith|(i)endswith|(i)contains|gte|gt|lte|lt|(i)exact|in|range|year|month|day|week_day|hour|minute|second|isnull|search|(i)regex|id}pk= ...)
+	//filter() all() return list
+
+[class].objects.get(query)
+	//get() return element
+
+[entity] = [class]([field]=..., [field]=...)
+[entity].save()
+[entity].[foreignkey]_set.all()
+[entity].[foreignkey]_set.create([field]=..., [field]=...)
+
+//add in the classes
+def __unicode__(self):
+	return self.question
