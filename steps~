@@ -145,8 +145,41 @@ in detail function
 		raise Http404
 	return render(request, 'polls/detail.html', {'poll':poll})
 
+render(reuqest, '[template path]', {context list})
+
 or shortcut get_object_or_404()
 
 poll = get_object_or_404([class], [query])
 
 in template language, _set.all() should be _set.all
+
+in template language, url need not be hardcoded
+	"/polls/{{poll.id}}/" can be {% url 'detail' poll.id%}    {% url '[url-name]' [var.field]%}
+
+tutorial 4
+write a form
+
+form syntax:
+<form action= "{url '[url name]' var}" path="post">
+{%csrf_token%}
+<input type="submit" value="[button display]">
+</form>
+
+radio syntax:
+{%for [e] in [varlist]%}
+<input type="radio" name="[name]" id="[e]{{forloop.counter}}"/>
+<label for="[e]{{forloop.counter}}">{{[e].[field]}}</label><br/>
+{% endfor %}
+
+send POST data [name]=[selected choice id], request.POST['choice'] is the id of key
+
+try except else
+	try:
+	except():
+	else:
+
+HttpResponseRedirect(reverse('[view in namespace]', args=([var],[var])))
+reverse return url from view
+
+add render in results view
+render(request, '[view path]', {[context list]})
