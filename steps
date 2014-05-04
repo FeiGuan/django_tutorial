@@ -57,3 +57,62 @@ fieldsets = [
 	(None, {'fields': ['question']})
 	('Date information', {'fields': ['pub_date']}),
 ]
+
+add inlines
+inlines = [[inlineClass]]
+
+class ChoiceInline(admin.StackedInline):
+	model = [foreign key class]
+	extra = [number of extra blanks]
+
+add entity list display
+list_display = ('[field]', '[function]', '[]')
+
+for a better list display, add function name.admin_order_field|boolean|short_description
+
+for list filter, list_filter = ['[field]', '[field]']
+
+for list search, search_fields = ['[field]']
+
+
+add mysite/templates
+
+in settings.py
+import os
+TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
+
+create base_site.html in templates/admin/
+
+
+
+tutorial 3
+
+in polls/views.py, add view, response to a request
+
+from django.http import HttpResponse
+
+def index(request):
+	return HttpResponse("hello")
+
+map it to a URL
+
+create urls.py in polls, url of patterns is regex and view-function path and function name
+
+point new URLconf in mysite/urls
+add url(r'^polls/', include('polls.urls')),
+url(r'^[uri]', include('[app urls path]'))
+
+then you can see /polls hello
+
+add more views to polls/views.py
+
+def [function](request, [parameter]):
+	return HttpResponse(" %s" %[parameter])
+
+url: localhost/app/uri
+mysite/urls: url(regex, include('app urls path')), set in ROOT_URLCONF
+app/urls: url(regex, view function path, name='function name')
+views: function return HttpResponse
+
+
+add database manipulation
