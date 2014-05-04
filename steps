@@ -194,3 +194,11 @@ get model field:
 	model.field
 
 remember to add template in TEMPLATE_DIR
+
+
+add Django's generic views
+in polls/urls.py: url's <parameter> changed into pk, view path changed into generic class
+
+in views
+view function changed into generic class(generic.ListView|DetailView)
+	template_name, context_object_name, get_queryset(), model
