@@ -184,3 +184,13 @@ reverse return url from view
 add render in results view
 render(request, '[view path]', {[context list]})
 filter: pluralize
+
+for loop
+questions = []
+for poll in polls:
+	questions.append(poll.question)
+
+get model field:
+	model.field
+
+remember to add template in TEMPLATE_DIR
