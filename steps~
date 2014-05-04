@@ -150,6 +150,3 @@ or shortcut get_object_or_404()
 poll = get_object_or_404([class], [query])
 
 in template language, _set.all() should be _set.all
-
-in template language, url need not be hardcoded
-	"/polls/{{poll.id}}/" can be {% url 'detail' poll.id%}    {% url '[url-name]' [var.field]%}
