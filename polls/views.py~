@@ -1,4 +1,13 @@
 from django.http import HttpResponse
 
-def index(request)
+def index(request):
 	return HttpResponse("hello");
+
+def detail(request, poll_DASSid):
+	return HttpResponse("You're looking at poll %s." %poll_DASSid)
+
+def results(request, poll_DSid):
+	return HttpResponse("You're looking at the results of poll %s." %poll_DSid)
+
+def vote(request, poll_DSid):
+	return HttpResponse("You're voting on poll %s." %poll_DSid)
