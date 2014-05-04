@@ -1,3 +1,5 @@
+tutorial 1
+
 add Poll Choice in models.py
 
 python manage.py sql polls
@@ -22,8 +24,36 @@ from [appname].models import [class],[class]
 [entity] = [class]([field]=..., [field]=...)
 [entity].save()
 [entity].[foreignkey]_set.all()
-[entity].[foreignkey]_set.create([field]=..., [field]=...)
+(foreign entity) = [entity].[foreignkey]_set.create([field]=..., [field]=...)
+(foreign entity).delete()
+
 
 //add in the classes
+
 def __unicode__(self):
 	return self.question
+
+
+tutorial 2
+python manage.py runserver /admin no page
+
+in mysite/urls.py, uncomment admin sentences. 
+
+then /admin page shows
+
+in poll/admin.py add admin.site.register(Poll). Polls in admin
+
+add PollAdmin class in admin.py, fields is list of fields
+class PollAdmin(admin.ModelAdmin):
+	fields = ['pub_date', 'question']
+
+admin.site.register(Poll, PollAdmin)
+
+there will be fields in order
+
+add fieldsets(fieldsets is list of tuple, tuple of fieldset title and fieldset)
+
+fieldsets = [
+	(None, {'fields': ['question']})
+	('Date information', {'fields': ['pub_date']}),
+]
