@@ -1,6 +1,6 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
-from polls.models import Poll
+from polls.models import Poll, Choice
 from django.template import RequestContext, loader
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
@@ -30,7 +30,7 @@ def vote(request, poll_id):
 	except (KeyError, Choice.DoesNotExist):
 		return render(request, 'polls/detail.html', {
 			'poll': p,
-			'error_message': "You didn't selecta choice",
+			'error_message': "You didn't select a choice",
 		})
 	else:
 		selected_choice.votes += 1
